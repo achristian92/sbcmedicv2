@@ -5,11 +5,7 @@
         <div class="col-xl-9 col-md-6">
             <h5 class="mb-0">Permisos ({{ $permissions->total() }})</h5>
         </div>
-        <div class="col-xl-3 col-md-6 mt-4 mt-md-0 text-md-end">
-            <a href="" class="btn btn-sm btn-primary">Nuevo</a>
-        </div>
     </div>
-
     <div class="row">
         <div class="col-12 mt-4">
             <div class="table-responsive bg-white shadow rounded">

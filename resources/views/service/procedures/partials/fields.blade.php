@@ -5,12 +5,12 @@
             @include('components.input-text',['name' => 'descripcion'])
         </div>
     </div>
-    <div class="col-md-3">
-        <div class="mb-3">
-            <label class="form-label">Código interno </label>
-            @include('components.input-text',['name' => 'codigo_interno'])
-        </div>
-    </div>
+{{--    <div class="col-md-3">--}}
+{{--        <div class="mb-3">--}}
+{{--            <label class="form-label">Código interno </label>--}}
+{{--            @include('components.input-text',['name' => 'codigo_interno'])--}}
+{{--        </div>--}}
+{{--    </div>--}}
     <div class="col-md-3">
         <div class="mb-3">
             <label class="form-label">Tipo</label>

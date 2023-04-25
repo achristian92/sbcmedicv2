@@ -1,7 +1,7 @@
 <tr>
+    <td class="p-3 text-center h6" data-order="{{ $schedule['date'] }}">{{ \Carbon\Carbon::parse($schedule['date'])->format('d/m/Y') }}</td>
     <td class="p-3">{{ ucwords(strtolower($schedule['lastname'])) }}</td>
     <td class="p-3 text-muted">{{ strtoupper($schedule['especialidad']) }}</td>
-    <td class="p-3 text-center h6">{{ \Carbon\Carbon::parse($schedule['date'])->format('d/m/Y') }}</td>
     <td class="p-3 text-center">{{ $schedule['horaMinimo'] }}</td>
     <td class="p-3 text-center">{{ $schedule['horaMaxima'] }}</td>
     <td class="p-3">

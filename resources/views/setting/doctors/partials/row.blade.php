@@ -12,6 +12,7 @@
             </div>
         </a>
     </td>
+    <td class="p-3">{{ $doctor->nro_document }}</td>
     <td class="p-3">
         @if($doctor->cmp)
             <small class="text-muted ms-2">cmp: {{ $doctor->cmp }}</small>

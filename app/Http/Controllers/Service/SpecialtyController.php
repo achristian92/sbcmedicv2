@@ -10,10 +10,10 @@ class SpecialtyController extends Controller
 {
     public function index()
     {
-        $specialties = Specialty::orderBy('name')->paginate();
+        $specialties = Specialty::orderBy('name')->get();
 
         if(request('show') !== 'all')
-            $specialties = Specialty::where('status',1)->orderBy('name')->paginate();
+            $specialties = Specialty::where('status',1)->orderBy('name')->get();
 
         return view('service.specialties.index',compact('specialties'));
     }

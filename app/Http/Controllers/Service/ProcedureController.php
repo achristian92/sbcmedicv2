@@ -7,16 +7,17 @@ use App\SoftMedic\General\ReasonAppointments\ReasonAppointment;
 use App\SoftMedic\Service\Procedures\Procedure;
 use App\SoftMedic\Service\Procedures\Requests\ProcedureRequest;
 use App\SoftMedic\Service\Specialties\Specialty;
+use Illuminate\Support\Str;
 
 
 class ProcedureController extends Controller
 {
     public function index()
     {
-        $procedures = Procedure::with('specialty','reasonappointment')->orderBy('idEspecialidad')->paginate();
+        $procedures = Procedure::with('specialty','reasonappointment')->orderBy('idEspecialidad')->get();
 
         if(request('show') !== 'all')
-            $procedures = Procedure::where('status',1)->with('specialty','reasonappointment')->orderBy('idEspecialidad')->paginate();
+            $procedures = Procedure::where('status',1)->with('specialty','reasonappointment')->orderBy('idEspecialidad')->get();
 
         return view('service.procedures.index',compact('procedures'));
     }
@@ -32,7 +33,13 @@ class ProcedureController extends Controller
 
     public function store(ProcedureRequest $request)
     {
-        Procedure::create($request->validated());
+        $specialty = Specialty::find($request->idEspecialidad);
+        $prefix = strtoupper(Str::substr($specialty->name, 0,3));
+        $next_number = (int) Str::substr(Procedure::latest()->first()['codigo_interno'],3) + 1;
+
+        Procedure::create($request->validated()+ [
+            'codigo_interno' => $prefix.$next_number
+        ]);
 
         return redirect()->route('service.procedures.index')->with('message','Registro guardado');
     }
@@ -48,7 +55,12 @@ class ProcedureController extends Controller
 
     public function update(ProcedureRequest $request, Procedure $procedure)
     {
-        $procedure->update($request->validated());
+        $number = Str::substr($procedure->codigo_interno,3);
+        $prefix = strtoupper(Str::substr(Specialty::find($request->idEspecialidad)->name, 0,3));
+
+        $procedure->update($request->validated() + [
+                'codigo_interno' => $prefix.$number
+        ]);
 
         return redirect()->route('service.procedures.index')->with('message','Registro guardado');
     }

@@ -4,14 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\SoftMedic\Patients\Patient;
+use App\SoftMedic\Service\Procedures\Procedure;
+use App\SoftMedic\Service\Specialties\Specialty;
 use App\SoftMedic\Settings\Doctors\Doctor;
 use App\SoftMedic\Settings\Roles\Rol;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class TestController extends Controller
 {
     public function index()
     {
+        $specialty = Specialty::find(12);
+
+        $prefix = strtoupper(Str::substr($specialty->name, 0,3));
+
+        $last_code = (int) Str::substr(Procedure::latest()->first()['codigo_interno'],3) + 1;
+
+        $codigo_interno = $prefix.$last_code;
+        dd($prefix,$last_code,$codigo_interno);
         $users = User::where('idRol',Rol::DOCTOR_TYPE)->get();
 
         Patient::whereIn('idUsuario',$users->pluck('id'))->get()
@@ -32,6 +43,6 @@ class TestController extends Controller
                     ]);
             });
 
-        dd("Fin Update");
+        dd("Fin Update x2");
     }
 }

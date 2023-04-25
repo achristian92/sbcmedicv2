@@ -3,7 +3,7 @@
     @include('components.errors-and-messages')
     <div class="row">
         <div class="col-xl-9 col-md-6">
-            <h5 class="mb-0">Especialidades ({{ $specialties->total() }})</h5>
+            <h5 class="mb-0">Especialidades</h5>
             <span class="text-muted">
                 @if(request('show') === 'all')
                     => <a href="{{ route('service.specialties.index',"show=active") }}" class="text-reset">Ver activos</a>
@@ -19,8 +19,8 @@
 
     <div class="row">
         <div class="col-12 mt-4">
-            <div class="table-responsive bg-white shadow rounded">
-                <table class="table mb-0 table-center">
+            <div class="table-responsive bg-white shadow rounded p-3">
+                <table class="table table-center" id="dtSpeciality" width="100%">
                     <thead>
                     <tr>
                         <th class="border-bottom p-3 text-center">#</th>
@@ -31,14 +31,30 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @each('service.specialties.partials.row', $specialties,'specialty')
+                        @each('service.specialties.partials.row', $specialties,'specialty')
                     </tbody>
                 </table>
-                <div class="mt-3 p-3">
-                    {!! $specialties->links() !!}
-                </div>
             </div>
         </div>
     </div>
 @endsection
 
+<style>
+    #dtSpeciality_filter {
+        float: left !important;
+    }
+    #dtSpeciality_filter input {
+        width: 400px;
+    }
+
+    #dtSpeciality_length {
+        float: right !important;
+    }
+
+    #dtSpeciality_length label {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 22px;
+    }
+</style>

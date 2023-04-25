@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Doctris - Doctor Appointment Booking System</title>
+    <title>SBCMEDIC - V2</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Premium Bootstrap 5 Landing Page Template" />
     <meta name="keywords" content="Appointment, Booking, System, Dashboard, Health" />
@@ -86,6 +86,30 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js" ></script>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js" ></script>
 <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js" ></script>
+<script>
+    let  srclangdt = "{{ URL::asset('datatables.json') }}"
+</script>
+<script  src="{{ asset('dts.js') }}"></script>
+<style>
+    table.dataTable tbody th, table.dataTable tbody td {
+        height: 32px;
+        padding: 1px 1px;
+        font-size: 13px
+    }
+    table tbody th, table tbody td {
+        height: 35px;
+        padding: 1px 1px;
+        font-size: 13px
+    }
+
+    table.dataTable tfoot th, table.dataTable tfoot td {
+        height: 35px;
+        padding: 1px 1px;
+        font-size: 12px;
+        border-top: 0.5px solid #111;
+    }
+
+</style>
 @stack('js')
 </body>
 

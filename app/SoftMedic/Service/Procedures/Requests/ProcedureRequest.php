@@ -9,7 +9,7 @@ class ProcedureRequest extends FormRequest
     public function rules() {
         return [
             'descripcion'    => 'required|max:250',
-            'codigo_interno' => 'required|max:20',
+            'codigo_interno' => 'nullable|max:20',
             'tipo'           => 'nullable',
             'tiempo'         => getValidateQuantity(),
             'precio'         => getValidateAmount(),

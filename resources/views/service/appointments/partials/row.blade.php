@@ -2,11 +2,14 @@
     <td class="p-3">{{ $appointment->id }}</td>
     <td class="p-3">
         {{ $appointment->patient->full_name }} <br>
-        <span class="text-muted">Doc: {{ $appointment->patient->document }}</span>
+        <span class="text-muted">Nro. Documento: {{ $appointment->patient->document }}</span>
     </td>
     <td class="p-3" data-order="{{ $appointment->fechaCita }}">{{ $appointment->fechaCita->format('d/m/Y') }} | {{ $appointment->horaCita }} </td>
-    <td class="p-3">{{ $appointment->specialty->name }}</td>
-    <td class="p-3">{{ $appointment->doctor->full_name }}</td>
+    <td class="p-3">{{ $appointment->codigo_asignacion }}</td>
+    <td class="p-3">
+        {{ $appointment->doctor->full_name }}<br>
+        <span class="text-muted">Especialidad: {{ $appointment->specialty->name }}</span>
+    </td>
     <td class="p-3">
         @if($appointment->status == '0')
             <span class="badge bg-soft-success">Atendida</span>

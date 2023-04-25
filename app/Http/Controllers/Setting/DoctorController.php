@@ -18,10 +18,10 @@ class DoctorController extends Controller
 {
     public function index()
     {
-        $doctors = Doctor::with('specialty')->orderBy('firstname')->paginate();
+        $doctors = Doctor::with('specialty')->orderBy('firstname')->get();
 
         if(request('show') !== 'all')
-            $doctors = Doctor::with('specialty')->where('status',1)->orderBy('firstname')->paginate();
+            $doctors = Doctor::with('specialty')->where('status',1)->orderBy('firstname')->get();
 
         return view('setting.doctors.index',compact('doctors'));
     }
