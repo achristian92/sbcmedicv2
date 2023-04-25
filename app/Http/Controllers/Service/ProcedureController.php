@@ -55,12 +55,7 @@ class ProcedureController extends Controller
 
     public function update(ProcedureRequest $request, Procedure $procedure)
     {
-        $number = Str::substr($procedure->codigo_interno,3);
-        $prefix = strtoupper(Str::substr(Specialty::find($request->idEspecialidad)->name, 0,3));
-
-        $procedure->update($request->validated() + [
-                'codigo_interno' => $prefix.$number
-        ]);
+        $procedure->update($request->validated());
 
         return redirect()->route('service.procedures.index')->with('message','Registro guardado');
     }
