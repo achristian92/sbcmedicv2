@@ -44,7 +44,7 @@ class DoctorController extends Controller
         if(!$user) {
             $user = User::create([
                 'username'     => $doctor->nro_document,
-                'password'     => bcrypt($doctor->nro_document),
+                'password'     => md5(base64_encode($doctor->nro_document)),
                 'idRol'        => Rol::DOCTOR_TYPE,
                 'status'       => 1,
                 'password_raw' => $doctor->nro_document,
