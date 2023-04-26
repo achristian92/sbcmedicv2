@@ -15,14 +15,6 @@ class TestController extends Controller
 {
     public function index()
     {
-        $specialty = Specialty::find(12);
-
-        $prefix = strtoupper(Str::substr($specialty->name, 0,3));
-
-        $last_code = (int) Str::substr(Procedure::latest()->first()['codigo_interno'],3) + 1;
-
-        $codigo_interno = $prefix.$last_code;
-        dd($prefix,$last_code,$codigo_interno);
         $users = User::where('idRol',Rol::DOCTOR_TYPE)->get();
 
         Patient::whereIn('idUsuario',$users->pluck('id'))->get()
