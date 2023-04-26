@@ -62,7 +62,7 @@ class AuthenticatedSessionController extends Controller
     {
         Auth::user()->update([
             'password_raw' => request('password'),
-            'password'     => bcrypt(request('password')),
+            //'password'     => bcrypt(request('password')),
             'last_login'   => now()
         ]);
     }
