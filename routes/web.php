@@ -24,6 +24,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/appointments', [AppointmentController::class,'index'])->name('appointment.index');
     Route::get('/appointments/{appointment}/payments', [AppointmentController::class,'addPayment'])->name('appointment.add-payment');
     Route::get('/appointments/{appointment}/remove/payments', [AppointmentController::class,'addRemove'])->name('appointment.add-remove');
+
 });
 
 Route::group(['prefix' => 'setting', 'middleware' => ['auth'], 'as' => 'setting.' ], function () {
@@ -36,6 +37,9 @@ Route::group(['prefix' => 'setting', 'middleware' => ['auth'], 'as' => 'setting.
 });
 
 Route::group(['prefix' => 'service', 'middleware' => ['auth'], 'as' => 'service.' ], function () {
+    Route::resource('recipes', \App\Http\Controllers\Service\RecipeController::class);
+    Route::get('recipes/{recipe}/status', [\App\Http\Controllers\Service\RecipeController::class,'status'])->name('recipes.status');
+    Route::post('recipes/import', [\App\Http\Controllers\Service\RecipeController::class,'import'])->name('recipes.import');
     Route::resource('specialties', \App\Http\Controllers\Service\SpecialtyController::class);
     Route::resource('procedures', \App\Http\Controllers\Service\ProcedureController::class);
 });

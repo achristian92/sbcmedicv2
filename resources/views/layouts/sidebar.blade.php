@@ -19,6 +19,7 @@
                 <a href="javascript:void(0)"><i class="uil uil-file-info-alt me-2 d-inline-block"></i>Servicios</a>
                 <div class="sidebar-submenu">
                     <ul>
+                        <li><a href="{{ route('service.recipes.index') }}">Recetas</a></li>
                         <li><a href="{{ route('service.procedures.index') }}">Procedimientos</a></li>
                         <li><a href="{{ route('service.specialties.index') }}">Especialidades</a></li>
                     </ul>

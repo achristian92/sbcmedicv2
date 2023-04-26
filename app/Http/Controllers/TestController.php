@@ -15,6 +15,7 @@ class TestController extends Controller
 {
     public function index()
     {
+
         $users = User::where('idRol',Rol::DOCTOR_TYPE)->get();
 
         Patient::whereIn('idUsuario',$users->pluck('id'))->get()
