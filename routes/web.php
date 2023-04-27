@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AppointmentController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Setting\ExamController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/appointments/{appointment}/payments', [AppointmentController::class,'addPayment'])->name('appointment.add-payment');
     Route::get('/appointments/{appointment}/remove/payments', [AppointmentController::class,'addRemove'])->name('appointment.add-remove');
 
+    Route::get('/solicitud-citas', [\App\Http\Controllers\Admin\SolicitudCitaController::class,'index'])->name('solicitud-citas.index');
+    Route::get('/solicitud-citas/{id}/delete', [\App\Http\Controllers\Admin\SolicitudCitaController::class,'delete'])->name('solicitud-citas.delete');
 });
 
 Route::group(['prefix' => 'setting', 'middleware' => ['auth'], 'as' => 'setting.' ], function () {
@@ -33,6 +36,7 @@ Route::group(['prefix' => 'setting', 'middleware' => ['auth'], 'as' => 'setting.
     Route::resource('permissions', \App\Http\Controllers\Setting\PermissionController::class);
     Route::resource('doctors', \App\Http\Controllers\Setting\DoctorController::class);
     Route::resource('schedules', \App\Http\Controllers\Setting\ScheduleController::class);
+    Route::resource('exams', ExamController::class);
     Route::get('schedules/{doctor_id}/{date}/delete', [\App\Http\Controllers\Setting\ScheduleController::class,'delete'])->name('schedules.delete');
 });
 

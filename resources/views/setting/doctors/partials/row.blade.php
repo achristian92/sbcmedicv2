@@ -1,5 +1,5 @@
 <tr>
-    <th class="p-3 text-center">{{ $doctor->id }}</th>
+    <td class="p-3 text-center">{{ $doctor->id }}</td>
     <td class="p-3">
         <a href="#" class="text-dark">
             <div class="d-flex align-items-center">

@@ -1,6 +1,7 @@
 $(document).ready( function () {
     const dts = [
-        "dtAppointment","dtSpeciality","dtProcedure","dtSchedule","dtDoctor","dtRecipe"
+        "dtAppointment","dtSpeciality","dtProcedure","dtSchedule",
+        "dtDoctor","dtRecipe","dtLaboratory"
     ];
     dts.forEach(function (dtable) {
         $('#'+dtable).DataTable({

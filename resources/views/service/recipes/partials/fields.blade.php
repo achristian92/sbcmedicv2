@@ -14,7 +14,7 @@
     <div class="col-md-3">
         <div class="mb-3">
             <label class="form-label">Código Susi <span class="text-danger">*</span></label>
-            @include('components.input-number',['name' => 'cod_susi'])
+            @include('components.input-text',['name' => 'cod_susi'])
         </div>
     </div>
 </div>

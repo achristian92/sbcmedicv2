@@ -17,14 +17,14 @@
                 <table class="table table-center" id="dtRecipe" width="100%">
                     <thead>
                     <tr>
-                        <th class="border-bottom p-3">#</th>
+                        <th class="border-bottom p-3 text-center" width="8%">#</th>
                         <th class="border-bottom p-3">Nombre</th>
                         <th class="border-bottom p-3">Presentación</th>
                         <th class="border-bottom p-3 text-center">Costo</th>
                         <th class="border-bottom p-3 text-center">Precio</th>
-                        <th class="border-bottom p-3 text-center">Cod. Sussi</th>
-                        <th class="border-bottom p-3 text-center">Estado</th>
-                        <th class="border-bottom p-3"></th>
+                        <th class="border-bottom p-3 text-center" width="10%">Cod. Sussi</th>
+                        <th class="border-bottom p-3 text-center" width="10%">Estado</th>
+                        <th class="border-bottom p-3" width="5%"></th>
                     </tr>
                     </thead>
                     <tbody>
