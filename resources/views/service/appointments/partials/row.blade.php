@@ -27,7 +27,7 @@
         @endif
     </td>
     <td class="text-end p-3">
-        @if($appointment->status == '1')
+        @if($appointment->status != '0')
             @if($appointment->payments->count() > 0 && $appointment->payments->count() === $appointment->payments->where('pago','1')->count())
                 <a href="{{ route('appointment.add-remove',$appointment) }}" class="btn btn-icon btn-pills btn-soft-danger ms-2"><i class="uil uil-money-bill-slash"></i></a>
             @else

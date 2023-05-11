@@ -38,13 +38,13 @@ class AppointmentController extends Controller
     {
         $appointment->payments()->update(['pago' => 1,'idUsuarioPago' => Auth::id(),'fechaPago'=> now()]);
 
-        return redirect()->route('appointment.index')->with('message','Pago agregado');
+        return redirect()->route('appointment.index',"status=1&month=".now()->format('Y-m'))->with('message','Pago agregado');
     }
 
     public function addRemove(Appointment $appointment)
     {
         $appointment->payments()->update(['pago' => 0,'idUsuarioPago' => NULL,'fechaPago'=> NULL]);
 
-        return redirect()->route('appointment.index')->with('message','Pago removido');
+        return redirect()->route('appointment.index',"status=1&month=".now()->format('Y-m'))->with('message','Pago removido');
     }
 }
