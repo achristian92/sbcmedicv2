@@ -21,7 +21,7 @@ class AppointmentController extends Controller
 
         if(request()->filled('month')){
             $from = Carbon::parse(request('month'))->startOfMonth()->format('Y-m-d');
-            $to = Carbon::parse(request('month'))->endOfMonth()->format('Y-m-d');
+            $to = Carbon::parse(request('month'))->endOfMonth()->addDay()->format('Y-m-d');
             $appointments = $appointments->where('fechaCita','>=',$from)->where('fechaCita','<=',$to);
         }
 
