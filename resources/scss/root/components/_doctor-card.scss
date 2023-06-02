@@ -1,0 +1,81 @@
+.doctor-card {
+  --#{$prefix}card-spacer-y: 1.2rem;
+  --#{$prefix}card-spacer-x: 1.2rem;
+  --#{$prefix}card-title-spacer-y: 0.5rem;
+  --#{$prefix}card-border-width: 0;
+  --#{$prefix}card-border-color: var(--#{$prefix}border-color-translucent);
+  --#{$prefix}card-border-radius: 6px;
+  --#{$prefix}card-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  --#{$prefix}card-inner-border-radius: calc(0.375rem - 1px);
+  --#{$prefix}card-cap-padding-y: 0.5rem;
+  --#{$prefix}card-cap-padding-x: 1rem;
+  --#{$prefix}card-cap-bg: rgba(0, 0, 0, 0.03);
+  --#{$prefix}card-cap-color: ;
+  --#{$prefix}card-height: ;
+  --#{$prefix}card-color: ;
+  --#{$prefix}card-bg: #fff;
+  --#{$prefix}card-img-overlay-padding: 1rem;
+  --#{$prefix}card-group-margin: 0.75rem;
+  box-shadow: var(--#{$prefix}card-box-shadow);
+
+  .card-figure {
+    display: block;
+    background-color: #f4f4f4;
+    overflow: hidden;
+    position: relative;
+    border-radius: 6px;
+    margin-bottom: 14px;
+    box-shadow: var(--#{$prefix}card-box-shadow);
+
+    &::before {
+      content: '';
+      display: block;
+      width: 100%;
+      background-size: cover;
+      background-position: center center;
+      background-color: inherit;
+      @include aspect-ratio(233, 233);
+    }
+      
+    img {
+      padding-top: 15px;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      object-fit: contain;
+    }
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 3px;
+  }
+
+  .card-text {
+    font-size: 14px;
+    line-height: 1.1;
+    font-weight: 500;
+  }
+
+  .card-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+
+  .card-badge {
+    background-color: #F8F9FAFF;
+    color: #000000;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 600;
+    border-radius: 4px;
+    padding: 4px 10px;
+  }
+}

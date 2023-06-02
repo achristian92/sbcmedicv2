@@ -1,0 +1,26 @@
+.hero-btn {
+    --#{$prefix}btn-font-weight: 600;
+    --#{$prefix}btn-color: var(--#{$prefix}white);
+    --#{$prefix}btn-bg: #024963;
+    --#{$prefix}btn-border-color: #024963;
+    --#{$prefix}btn-hover-color: var(--#{$prefix}white);
+    --#{$prefix}btn-hover-bg: #{shade-color(#024963, 10%)};
+    --#{$prefix}btn-hover-border-color: #{shade-color(#024963, 10%)};
+    --#{$prefix}btn-focus-shadow-rgb: var(--#{$prefix}primary-rgb);
+    --#{$prefix}btn-active-color: var(--#{$prefix}btn-hover-color);
+    --#{$prefix}btn-active-bg: #{shade-color(#024963, 20%)};
+    --#{$prefix}btn-active-border-color: #{shade-color(#024963, 20%)};
+
+    border-radius: 30px;
+    font-size: 1.25rem;
+    padding: .6rem 1.3rem;
+    font-weight: 700;
+}
+
+@each $color, $value in $theme-colors {
+    .btn-#{$color} {
+        @if $color == "secondary" {
+            @include button-variant(#024963, #024963, #FFF)
+        }
+    }
+}

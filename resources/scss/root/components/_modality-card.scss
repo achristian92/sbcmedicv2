@@ -1,0 +1,33 @@
+.modality-card {
+  --#{$prefix}card-spacer-y: 1rem;
+  --#{$prefix}card-spacer-x: 1rem;
+  --#{$prefix}card-title-spacer-y: 0.5rem;
+  --#{$prefix}card-border-width: 0;
+  --#{$prefix}card-border-color: var(--#{$prefix}border-color-translucent);
+  --#{$prefix}card-border-radius: 6px;
+  --#{$prefix}card-box-shadow: #{$card-box-shadow};
+  --#{$prefix}card-inner-border-radius: calc(0.375rem - 1px);
+  --#{$prefix}card-cap-padding-y: 0.5rem;
+  --#{$prefix}card-cap-padding-x: 1rem;
+  --#{$prefix}card-cap-bg: rgba(0, 0, 0, 0.03);
+  --#{$prefix}card-cap-color: ;
+  --#{$prefix}card-height: ;
+  --#{$prefix}card-color: ;
+  --#{$prefix}card-bg: #fff;
+  --#{$prefix}card-img-overlay-padding: 1rem;
+  --#{$prefix}card-group-margin: 0.75rem;
+  box-shadow: var(--#{$prefix}card-box-shadow);
+
+  .card-title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 32px;
+  }
+  .card-text {
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 400;
+    text-align: justify;
+  }
+}

@@ -1,0 +1,78 @@
+.footer {
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-areas: 'logo text social contact';
+    grid-template-columns: repeat(2, auto) 10rem auto;
+    gap: 2rem 0.8rem;
+
+    padding-top: map-get($spacers, 5);
+    padding-bottom: map-get($spacers, 5);
+
+    font-family: 'Inter';
+
+    h6 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        line-height: 1.1;
+    }
+
+    &-logo {
+        grid-area: logo;
+        align-self: center;
+        text-align: center;
+    }
+
+    &-text {
+        grid-area: text;
+    }
+
+    &-social {
+        grid-area: social;
+
+        ul {
+            display: flex;
+            list-style: none;
+            gap: 0.8rem;
+            padding: 0;
+            justify-content: space-between;
+        }
+    }
+
+    &-contact {
+        grid-area: contact;
+        align-self: center;
+        color: $primary;
+        text-align: center;
+        &-text {
+            color: $primary;
+            font-weight: 600;
+            font-size: 1.375rem;
+        }
+    }
+
+    &-link {
+        color: #000;
+        display: block;
+        text-decoration: none;
+        line-height: 1.6;
+
+        &:hover {
+            text-decoration: underline;
+            color: $primary;
+        }
+    }
+
+    &-number {
+        font-size: 2.4rem;
+        line-height: 1;
+        font-weight: 600;
+        font-style: italic;
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    .footer {
+        grid-template-columns: auto auto;
+        grid-template-areas: 'logo logo' 'text social' 'contact contact';
+    }
+}

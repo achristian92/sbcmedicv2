@@ -1,0 +1,10 @@
+h1 {
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+@include media-breakpoint-down(xl) {
+  h1 {
+    font-size: calc(1.3rem + 1.5vw);
+  }
+}

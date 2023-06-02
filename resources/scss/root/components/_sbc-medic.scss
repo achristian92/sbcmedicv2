@@ -1,0 +1,60 @@
+.sbc-medic-figure {
+    width: 100%;
+    background-color: $primary;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border-radius: 4px;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        background-size: cover;
+        background-position: center center;
+        background-color: inherit;
+        @include aspect-ratio(401, 612);
+    }
+
+    img {
+        padding-top: 12px;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        object-fit: contain;
+    }
+}
+
+.sbc-medic-info {
+    &-item {
+        margin-bottom: .8rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: .25rem;
+        line-height: 1;
+    }
+
+    &-text {
+        line-height: 1.2;
+    }
+
+    &-text + .sbc-medic-info-text {
+        margin-top: 6px;
+    }
+
+    span {
+        display: block;
+    }
+}

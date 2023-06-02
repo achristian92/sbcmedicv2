@@ -1,0 +1,43 @@
+$bootstrap-icons-font-src: url("./fonts/bootstrap-icons.woff2") format("woff2"), url("./fonts/bootstrap-icons.woff") format("woff");
+
+$primary: #36ae73 !default;
+$blue: #024963;
+$secondary: #024963;
+
+$font-family-sans-serif: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+$nav-link-font-size: 18px;
+$nav-link-font-weight: 500;
+$navbar-padding-y: 1.6rem;
+$navbar-nav-link-padding-x: 0.8rem;
+
+// Card
+$card-border-width: 0;
+$card-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+
+// No se
+$bd-violet: #000;
+
+// Form
+$form-label-font-weight: 600;
+$input-placeholder-color: #A0A0A0;
+
+// Pagination
+$pagination-active-bg: #000;
+$pagination-bg: tranparent;
+$pagination-border-width: 0;
+$pagination-color: #272727;
+$pagination-focus-color: inherit;
+$pagination-focus-box-shadow: none;
+$pagination-padding-x-sm: .8rem;
+
+$spacer: 1rem;
+$spacers: (
+    0: 0,
+    1: $spacer * 0.25,
+    2: $spacer * 0.5,
+    3: $spacer,
+    4: $spacer * 1.5,
+    5: $spacer * 3,
+    6: $spacer * 4.5
+);

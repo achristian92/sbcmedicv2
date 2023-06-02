@@ -19,6 +19,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/landing', function () {
     return view('landing.index');
 });
+Route::get('/landing/medicos', function () {
+    return view('landing.doctors');
+});
+Route::get('/landing/medico', function () {
+    return view('landing.doctor');
+});
 
 Route::get('/', function () {
     return redirect()->route('home');

@@ -1,0 +1,84 @@
+@import "root/fonts";
+
+$enable-dark-mode: false;
+
+@import "~bootstrap/scss/functions";
+
+@import "root/variables";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/variables-dark";
+
+@import "~bootstrap/scss/maps";
+
+@import "~bootstrap/scss/mixins";
+@import "root/aspect-ratio";
+
+@import "~bootstrap/scss/root";
+
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/accordion";
+@import "~bootstrap/scss/breadcrumb";
+@import "~bootstrap/scss/pagination";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/alert";
+@import "~bootstrap/scss/progress";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/toasts";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/tooltip";
+@import "~bootstrap/scss/popover";
+@import "~bootstrap/scss/carousel";
+@import "~bootstrap/scss/spinners";
+@import "~bootstrap/scss/offcanvas";
+@import "~bootstrap/scss/placeholders";
+@import "~bootstrap/scss/helpers";
+
+@import "~bootstrap/scss/utilities/api";
+
+@import "~bootstrap-icons/font/bootstrap-icons";
+@import '~@splidejs/splide/src/css/themes/default/index';
+
+@import "root/custom";
+@import "root/headers";
+@import "root/buttons";
+@import "root/components/hero";
+@import "root/components/section";
+@import "root/components/modality-card";
+@import "root/components/specialties-card";
+@import "root/components/doctor-card";
+@import "root/components/list-us";
+@import "root/components/banner-us";
+@import "root/components/banner-vertical";
+@import "root/components/sbc-accordion";
+@import "root/components/sbc-address";
+@import "root/components/sbc-medic";
+@import "root/components/sbc-medics";
+
+@import "root/layout/footer";
+
+body {
+    background: linear-gradient(
+            258.36deg,
+            rgba(52, 174, 114, 0) 0.29%,
+            rgba(52, 174, 114, 0.08) 40.05%,
+            rgba(255, 255, 255, 0.150638) 46.42%,
+            rgba(255, 255, 255, 0.2) 46.43%,
+            rgba(95, 251, 241, 0.08) 100%
+    );
+}

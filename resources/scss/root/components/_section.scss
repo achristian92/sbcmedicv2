@@ -1,0 +1,11 @@
+.section {
+  max-width: map-get($container-max-widths, md);
+  @include make-container();
+}
+
+@each $size, $value in $container-max-widths {
+    .section-#{$size} {
+        max-width: $value;
+        @include make-container();
+    }
+}

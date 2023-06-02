@@ -1,0 +1,66 @@
+.sbc-address {
+    display: flex;
+
+    border-radius: 10px;
+    overflow: hidden;
+
+    &-info {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+
+        width: 100%;
+        max-width: 25rem;
+        padding: 4.2rem 2rem;
+
+        background-color: $primary;
+        color: #FFFFFF;
+    }
+
+    &-map {
+        flex: 1 0 0;
+    }
+
+    &-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        li {
+            padding-left: 2.6rem;
+            margin-bottom: 2rem;
+
+            position: relative;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: .5rem;
+
+        background-color: #FFFFFF;
+        border-radius: 4px;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    &-title {
+        display: block;
+        font-size: 1.1rem;
+        font-weight: 600;
+        line-height: 1.2;
+        margin-bottom: 3px;
+    }
+
+    &-text {
+        display: block;
+    }
+}
+

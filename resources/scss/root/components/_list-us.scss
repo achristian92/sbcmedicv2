@@ -1,0 +1,21 @@
+.list-us {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  &-item {
+    position: relative;
+    padding-left: 1.3rem;
+  }
+
+  &-icon {
+    color: #36ae73;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  &-text {
+  }
+}
