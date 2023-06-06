@@ -27,7 +27,7 @@
                             </select>
                         </div>
                         <div class="d-grid">
-                            <input type="submit" value="Buscar" class="btn btn-secondary">
+                            <input type="button" value="Buscar" class="btn btn-secondary">
                         </div>
                     </form>
                 </div>
@@ -53,6 +53,7 @@
                                 </div>
                                 <span class="card-badge"
                                       style="background-color: #ecfff6; color: #36ae73">Medicina general</span>
+                                <a href="/landing/medico" class="stretched-link"></a>
                             </div>
                         </div>
                     @endfor

@@ -30,32 +30,56 @@
         </div>
         <div class="section-xl">
             <div class="row justify-content-center gy-4">
-                @for ($i = 0; $i < 3; $i++)
-                    <div class="col-12 col-xl-4">
-                        <div class="card h-100 modality-card">
-                            <x-root.svg.medicos-at-home class="card-img-top"/>
-                            <div class="card-body">
-                                <h6 class="card-title">Médicos a domicilio</h6>
-                                <p class="card-text">
-                                    ¿Necesitas atención médica pero no puedes ir al consultorio? En SBCmedic te
-                                    ofrecemos
-                                    nuestros
-                                    servicios
-                                    de médicos a domicilio para que puedas recibir la atención que necesitas en la
-                                    comodidad
-                                    de
-                                    tu
-                                    hogar.
-                                </p>
-                            </div>
+                <div class="col-12 col-lg-6 col-xl-4">
+                    <div class="card h-100 modality-card">
+                        <img class="card-img-top object-fit-contain" src="{{ asset('landing_assets/images/medicos-domicilio.png') }}" alt="Portada" style="height: 175px"/>
+                        <div class="card-body">
+                            <h6 class="card-title">Médicos a domicilio</h6>
+                            <p class="card-text">
+                                ¿Necesitas atención médica pero no puedes ir al consultorio? En SBCmedic te
+                                ofrecemos
+                                nuestros
+                                servicios
+                                de médicos a domicilio para que puedas recibir la atención que necesitas en la
+                                comodidad
+                                de
+                                tu
+                                hogar.
+                            </p>
                         </div>
                     </div>
-                @endfor
+                </div>
+                <div class="col-12 col-lg-6 col-xl-4">
+                    <div class="card h-100 modality-card">
+                        <x-root.svg.medicos-at-home class="card-img-top"/>
+                        <div class="card-body">
+                            <h6 class="card-title">Salud ocupacional</h6>
+                            <p class="card-text">
+                                Ofrecemos servicios de salud ocupacional para garantizar que tu equipo de trabajo esté
+                                sano y seguro. Nuestro equipo está comprometido en proporcionar una atención médica
+                                personalizada y enfocada en las necesidades de tu empresa.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 col-xl-4">
+                    <div class="card h-100 modality-card">
+                        <img class="card-img-top object-fit-contain" src="{{ asset('landing_assets/images/tele-medicina.png') }}" alt="Portada" style="height: 175px"/>
+                        <div class="card-body">
+                            <h6 class="card-title">Tele medicina</h6>
+                            <p class="card-text">
+                                Sabemos que la atención médica a veces puede ser difícil de obtener debido a la
+                                distancia o la falta de tiempo. Es por eso que ofrecemos servicios de telemedicina para
+                                que puedas recibir atención médica desde cualquier lugar y en cualquier momento.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="container py-6">
+    <section class="container py-6" id="nosotros">
         <div class="section mb-5">
             <h1 class="text-center">
                 Conoce más <br/>
@@ -105,7 +129,7 @@
 
     </section>
 
-    <section class="container py-6">
+    <section class="container py-6" id="especialidades">
         <div class="section mb-5">
             <h1 class="text-center">Nuestras especialidades médicas</h1>
             <h5 class="text-center">
@@ -322,7 +346,7 @@
         </section>
     </section>
 
-    <div class="sbc-contact">
+    <div class="sbc-contact" id="contacto">
         <section class="container py-6">
             <div class="section mb-5">
                 <h1 class="text-center">Contacto</h1>

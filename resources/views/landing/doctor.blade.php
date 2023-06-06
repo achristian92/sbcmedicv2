@@ -2,13 +2,13 @@
 @section('content')
     <div class="container-xl">
         <div class="row gx-4 gy-5">
-            <div class="col-4 col-xl-3">
+            <div class="col-12 col-sm-4 col-xl-3">
                 <div class="sbc-medic-figure mb-4">
                     <img src="{{ asset('landing_assets/images/doctor.png') }}" alt=""/>
                 </div>
 
                 <div class="sbc-medic-info">
-                    <h1 class="fs-2 mb-3">Dr. Rodrigo Cuba</h1 class="fs-2">
+                    <h1 class="fs-2 mb-3">Dr. Rodrigo Cuba</h1>
 
                     <div class="sbc-medic-info-item">
                         <span class="sbc-medic-info-title">Especialidad</span>

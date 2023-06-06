@@ -1,35 +1,42 @@
 <div class="footer container">
     <div class="footer-logo">
-        <x-root.svg.logo/>
+        <a href="/landing">
+            <x-root.svg.logo/>
+        </a>
     </div>
     <div class="footer-text">
         <h6>Nosotros</h6>
-        <a href="#" class="footer-link">Inicio</a>
-        <a href="#" class="footer-link">Especialidades</a>
-        <a href="#" class="footer-link">Médicos</a>
-        <a href="#" class="footer-link">Contacto</a>
+        <a href="/landing" class="footer-link">Inicio</a>
+        <a href="/landing" data-action="nav-smooth" data-target="especialidades" class="footer-link">Especialidades</a>
+        <a href="/landing/medicos" class="footer-link">Médicos</a>
+        <a href="/landing" data-action="nav-smooth" data-target="contacto" class="footer-link">Contacto</a>
     </div>
     <div class="footer-social">
         <h6>Redes sociales</h6>
         <ul>
             <li>
-                <a href="#">
+                <a href="#" target="_blank">
                     <x-root.svg.youtube/>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="#" target="_blank">
                     <x-root.svg.linkedin/>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="https://www.instagram.com/sbcmedic/" target="_blank">
                     <x-root.svg.instagram/>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="https://www.facebook.com/sbcmedicpoliclinico" target="_blank">
                     <x-root.svg.facebook/>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.tiktok.com/@sbcmedic_peru?is_from_webapp=1&sender_device=pc" target="_blank">
+                    <img src="{{ asset('landing_assets/images/tiktok.png') }}" alt="tiktok" />
                 </a>
             </li>
         </ul>

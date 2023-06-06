@@ -16,3 +16,7 @@
 .sbc-contact {
     background: linear-gradient(90deg, #E2F5FE 0.29%, #E5F9F8 40.05%, #FFFFFF 100.00%);
 }
+
+.stretched-link::after {
+    z-index: 2;
+}
