@@ -9,14 +9,25 @@
         <select name="local_id" id="local_id" class="form-select">
             <option value="">Seleccione un local</option>
             @foreach($locals as $local)
-                <option value="{{ $local->id }}" {{ $model->local && $model->local->id === $local->id ? 'selected' : '' }}>{{ $local->name }}</option>
+                <option
+                    value="{{ $local->id }}" {{ $model->local && $model->local->id === $local->id ? 'selected' : '' }}>{{ $local->name }}</option>
             @endforeach
         </select>
     </div>
 
     <div class="col-12 mb-3">
-        <label class="form-label">Descripción <span class="text-danger">*</span></label>
-        <textarea id="editor" name="web_description">{{ $model->web_description }}</textarea>
+        <label class="form-label">Descripción</label>
+        <textarea class="editor" id="c2" name="web_description">{{ $model->web_description }}</textarea>
+    </div>
+
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Formación Academica <span class="text-danger">*</span></label>
+        <textarea class="editor" id="c0" name="web_info">{{ $model->web_info }}</textarea>
+    </div>
+
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Servicios <span class="text-danger">*</span></label>
+        <textarea class="editor" id="c1" name="web_services">{{ $model->web_services }}</textarea>
     </div>
 
     <div class="col-12">
@@ -31,3 +42,10 @@
 </div>
 
 @include('components.form-actions')
+
+<script>
+    var allEditors = document.querySelectorAll('.editor');
+    for (var i = 0; i < allEditors.length; ++i) {
+        ClassicEditor.create(allEditors[i]);
+    }
+</script>

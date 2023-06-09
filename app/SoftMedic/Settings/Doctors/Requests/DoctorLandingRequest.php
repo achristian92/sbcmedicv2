@@ -12,7 +12,9 @@ class DoctorLandingRequest extends FormRequest
             'local_id' => 'required',
             'web_description' => 'nullable',
             'web_is_active' => 'nullable',
-            'attachment_img' => 'nullable|image'
+            'attachment_img' => 'nullable|image',
+            'web_info' => 'required',
+            'web_services' => 'required',
         ];
     }
 
@@ -20,6 +22,8 @@ class DoctorLandingRequest extends FormRequest
     {
         return [
             'web_description.required' => "Descripción es obligatorio",
+            'web_info.required' => "Formación Academica es obligatorio",
+            'web_services.required' => "Servicios es obligatorio",
             'local_id.required' => "Sede es obligatorio",
             'attachment_img.image' => "Solo se permite imagenes",
         ];
