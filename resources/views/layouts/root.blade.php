@@ -15,6 +15,7 @@
 </head>
 
 <body>
+@include('layouts.root.messages')
 @include('layouts.root.navbar')
 
 <a href="https://wa.me/51919446233" class="action-float" target="_blank">

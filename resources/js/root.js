@@ -59,6 +59,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }).mount({AutoScroll})
     }
 
+    // const splideEspecialtyEl = document.querySelector('#splide-specialty')
+    // if (splideEspecialtyEl) {
+    //     new Splide(splideEspecialtyEl, {
+    //         type: ''
+    //     })
+    // }
+
     console.log(window.location.hash)
 
     const navItems = [].slice.call(document.querySelectorAll('[data-action="nav-smooth"]'))

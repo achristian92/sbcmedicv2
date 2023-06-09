@@ -1,15 +1,15 @@
 <div class="footer container">
     <div class="footer-logo">
-        <a href="/landing">
+        <a href="{{ route('root.home.index') }}">
             <x-root.svg.logo/>
         </a>
     </div>
     <div class="footer-text">
         <h6>Nosotros</h6>
-        <a href="/landing" class="footer-link">Inicio</a>
-        <a href="/landing" data-action="nav-smooth" data-target="especialidades" class="footer-link">Especialidades</a>
-        <a href="/landing/medicos" class="footer-link">Médicos</a>
-        <a href="/landing" data-action="nav-smooth" data-target="contacto" class="footer-link">Contacto</a>
+        <a href="{{ route('root.home.index') }}" class="footer-link">Inicio</a>
+        <a href="{{ route('root.home.index') }}" data-action="nav-smooth" data-target="especialidades" class="footer-link">Especialidades</a>
+        <a href="{{ route('root.doctors.index') }}" class="footer-link">Médicos</a>
+        <a href="{{ route('root.home.index') }}" data-action="nav-smooth" data-target="contacto" class="footer-link">Contacto</a>
     </div>
     <div class="footer-social">
         <h6>Redes sociales</h6>

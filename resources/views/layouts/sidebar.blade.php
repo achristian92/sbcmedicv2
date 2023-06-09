@@ -39,6 +39,17 @@
                     </ul>
                 </div>
             </li>
+
+            <li class="sidebar-dropdown">
+                <a href="javascript:void(0)"><i class="uil uil-setting me-2 d-inline-block"></i>Landing</a>
+                <div class="sidebar-submenu">
+                    <ul>
+                        <li><a href="{{ route('landing.doctors.index') }}">Doctores</a></li>
+                        <li><a href="{{ route('landing.specialties.index') }}">Especialidades</a></li>
+                        <li><a href="{{ route('landing.locals.index') }}">Sedes</a></li>
+                    </ul>
+                </div>
+            </li>
         </ul>
         <!-- sidebar-menu  -->
     </div>
