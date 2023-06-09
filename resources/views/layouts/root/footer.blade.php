@@ -15,12 +15,12 @@
         <h6>Redes sociales</h6>
         <ul>
             <li>
-                <a href="#" target="_blank">
+                <a href="https://www.youtube.com/channel/UCViWTA3N46DfqkfldDAH65A" target="_blank">
                     <x-root.svg.youtube/>
                 </a>
             </li>
             <li>
-                <a href="#" target="_blank">
+                <a href="https://www.linkedin.com/company/sbc-medic/" target="_blank">
                     <x-root.svg.linkedin/>
                 </a>
             </li>
