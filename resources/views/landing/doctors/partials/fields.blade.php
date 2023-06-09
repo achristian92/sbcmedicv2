@@ -7,7 +7,7 @@
     <div class="col-md-4 mb-3">
         <label class="form-label" for="local_id">Sede <span class="text-danger">*</span></label>
         <select name="local_id" id="local_id" class="form-select">
-            <option value="0">Seleccione un local</option>
+            <option value="">Seleccione un local</option>
             @foreach($locals as $local)
                 <option value="{{ $local->id }}" {{ $model->local && $model->local->id === $local->id ? 'selected' : '' }}>{{ $local->name }}</option>
             @endforeach
