@@ -16,7 +16,7 @@
                     para
                     brindarte una atención médica de calidad y personalizada.
                 </p>
-                <button class="btn hero-btn">¡Agenda tu cita hoy mismo!</button>
+                <a href="https://wa.me/51919446233" target="_blank" class="btn hero-btn">¡Agenda tu cita hoy mismo!</a>
             </div>
         </div>
     </article>

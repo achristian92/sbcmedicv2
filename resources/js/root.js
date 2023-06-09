@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const {action, target} = navItem.dataset
             if (window.location.pathname !== navItem.pathname) {
-                window.location.href = `${navItem.href}/#${target}`
+                window.location.href = `/#${target}`
             } else {
                 const nodeTarget = document.getElementById(target)
                 const box = nodeTarget.getBoundingClientRect()
