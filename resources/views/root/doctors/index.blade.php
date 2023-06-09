@@ -25,7 +25,7 @@
 {{--                        </div>--}}
                         <div class="mb-4">
                             <select class="form-select" name="local_id">
-                                <option selected>Sede</option>
+                                <option selected value="">Sede</option>
                                 @foreach($locals as $local)
                                     <option
                                         value="{{ $local->id }}" {{ request()->get('local_id') == $local->id ? 'selected' : '' }}>{{ $local->name }}</option>
