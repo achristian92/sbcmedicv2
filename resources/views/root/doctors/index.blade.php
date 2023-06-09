@@ -48,29 +48,7 @@
                 @if(count($doctors) > 0)
                     <div class="sbc-medics mb-4">
                         @foreach($doctors as $doctor)
-                            <div class="card doctor-card">
-                                <div class="card-body">
-                                    <div class="card-figure">
-                                        @if ($doctor->web_src_img)
-                                            <img src="{{ $doctor->web_src_img }}" alt="{{ $doctor->getFullNameAttribute() }}"/>
-                                        @else
-                                            @if($doctor->gender === 'M')
-                                                <img src="{{ asset('assets/images/doctors/01.jpg') }}" alt="">
-                                            @else
-                                                <img src="{{ asset('assets/images/doctors/03.jpg') }}" alt="">
-                                            @endif
-                                        @endif
-                                    </div>
-                                    <h6 class="card-title">{{ $doctor->title }} {{ $doctor->firstname }} {{ $doctor->lastname }}</h6>
-                                    <div class="card-content">
-                                        <span class="card-text">CMP: {{ $doctor->cmp ? $doctor->cmp : '----' }}</span>
-                                        <span class="card-text">RNE: {{ $doctor->rne ? $doctor->rne : '----' }}</span>
-                                    </div>
-                                    <span class="card-badge"
-                                          style="background-color: #ecfff6; color: #36ae73">{{ $doctor->specialty->name }}</span>
-                                    <a href="{{ route('root.doctors.show', $doctor) }}" class="stretched-link"></a>
-                                </div>
-                            </div>
+                            <x-root.doctor :doctor="$doctor"/>
                         @endforeach
                     </div>
 

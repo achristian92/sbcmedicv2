@@ -41,7 +41,7 @@
             </li>
 
             <li class="sidebar-dropdown">
-                <a href="javascript:void(0)"><i class="uil uil-setting me-2 d-inline-block"></i>Landing</a>
+                <a href="javascript:void(0)"><i class="uil uil-window me-2 d-inline-block"></i>Landing</a>
                 <div class="sidebar-submenu">
                     <ul>
                         <li><a href="{{ route('landing.doctors.index') }}">Doctores</a></li>
