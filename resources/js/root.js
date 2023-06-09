@@ -62,14 +62,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const splideEspecialtyEl = document.querySelector('#splide-specialty')
     if (splideEspecialtyEl) {
         new Splide(splideEspecialtyEl, {
-            type   : 'loop',
-            drag   : 'free',
-            focus  : 'center',
+            type: 'loop',
+            drag: 'free',
+            focus: 'center',
             perPage: 8,
             fixedWidth: '14rem',
             autoScroll: {
                 speed: .5,
             },
+            pagination: false,
         }).mount({AutoScroll})
     }
 
