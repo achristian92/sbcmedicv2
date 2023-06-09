@@ -144,9 +144,26 @@
         </div>
 
         <div class="section-xxl">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 gx-4 gy-5">
-                @each('root.home.partials.specialty', $specialties, 'specialty')
-            </div>
+            @each('root.home.partials.specialty', $specialties, 'specialty')
+
+            <section id="splide-specialty" class="splide">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        @foreach($specialties as $specialty)
+                            <li class="splide__slide text-center py-2 mx-3">
+                                <div class="card specialties-card">
+                                    <div class="card-body">
+                                        <img src="{{ asset($specialty->web_src_icon) }}" alt="">
+                                        <h6 class="card-title">{{ $specialty->name }}</h6>
+                                        <a class="stretched-link" data-bs-toggle="modal"
+                                           data-bs-target="#modal-specialty-{{ $specialty->getIdAttribute() }}"></a>
+                                    </div>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </section>
         </div>
     </section>
 

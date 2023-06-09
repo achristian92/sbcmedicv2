@@ -59,12 +59,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }).mount({AutoScroll})
     }
 
-    // const splideEspecialtyEl = document.querySelector('#splide-specialty')
-    // if (splideEspecialtyEl) {
-    //     new Splide(splideEspecialtyEl, {
-    //         type: ''
-    //     })
-    // }
+    const splideEspecialtyEl = document.querySelector('#splide-specialty')
+    if (splideEspecialtyEl) {
+        new Splide(splideEspecialtyEl, {
+            type   : 'loop',
+            drag   : 'free',
+            focus  : 'center',
+            perPage: 8,
+            fixedWidth: '14rem',
+            autoScroll: {
+                speed: .5,
+            },
+        }).mount({AutoScroll})
+    }
 
     console.log(window.location.hash)
 
