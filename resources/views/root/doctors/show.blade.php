@@ -4,8 +4,15 @@
         <div class="row gx-4 gy-5">
             <div class="col-12 col-sm-4 col-xl-3">
                 <div class="sbc-medic-figure mb-4">
-{{--                    <img src="{{ asset('landing_assets/images/ALFARO 4.jpg') }}" alt="">--}}
-                    <img src="{{ $doctor->web_src_img }}" alt="{{ $doctor->getFullNameAttribute() }}"/>
+                    @if ($doctor->web_src_img)
+                        <img src="{{ $doctor->web_src_img }}" alt="{{ $doctor->getFullNameAttribute() }}"/>
+                    @else
+                        @if($doctor->gender === 'M')
+                            <img src="{{ asset('assets/images/doctors/01.jpg') }}" alt="">
+                        @else
+                            <img src="{{ asset('assets/images/doctors/03.jpg') }}" alt="">
+                        @endif
+                    @endif
                 </div>
 
                 <div class="sbc-medic-info">
