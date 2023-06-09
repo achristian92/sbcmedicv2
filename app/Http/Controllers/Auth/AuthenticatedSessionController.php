@@ -15,7 +15,7 @@ class AuthenticatedSessionController extends Controller
     public function create()
     {
         if (Auth::check())
-            return redirect('/');
+            return redirect('/home');
 
         return view('auth.login');
     }
@@ -30,14 +30,14 @@ class AuthenticatedSessionController extends Controller
 
         if (Auth::attempt(['username' => $request->username,'password' => $request->password])) {
             $this->updateUser();
-            return redirect('/');
+            return redirect('/home');
         }
 
         $user = User::where('username',$request->username)->where('password',md5(base64_encode($request->password)))->first();
         if($user) {
             Auth::loginUsingId($user->id);
             $this->updateUser();
-            return redirect('/');
+            return redirect('/home');
         }
 
         return back()->withErrors([

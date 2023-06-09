@@ -16,7 +16,7 @@
                     para
                     brindarte una atención médica de calidad y personalizada.
                 </p>
-                <button class="btn hero-btn">¡Agenda tu cita hoy mismo!</button>
+                <a href="https://wa.me/51919446233" target="_blank" class="btn hero-btn">¡Agenda tu cita hoy mismo!</a>
             </div>
         </div>
     </article>
@@ -32,7 +32,9 @@
             <div class="row justify-content-center gy-4">
                 <div class="col-12 col-lg-6 col-xl-4">
                     <div class="card h-100 modality-card">
-                        <img class="card-img-top object-fit-contain" src="{{ asset('landing_assets/images/medicos-domicilio.png') }}" alt="Portada" style="height: 175px"/>
+                        <img class="card-img-top object-fit-contain"
+                             src="{{ asset('landing_assets/images/medicos-domicilio.png') }}" alt="Portada"
+                             style="height: 175px"/>
                         <div class="card-body">
                             <h6 class="card-title">Médicos a domicilio</h6>
                             <p class="card-text">
@@ -56,15 +58,17 @@
                             <h6 class="card-title">Salud ocupacional</h6>
                             <p class="card-text">
                                 Ofrecemos servicios de salud ocupacional para garantizar que tu equipo de trabajo esté
-                                sano y seguro. Nuestro equipo está comprometido en proporcionar una atención médica
-                                personalizada y enfocada en las necesidades de tu empresa.
+                                sano y seguro. De esta forma, contamos con protocolos para trabajadores operativos,
+                                administrativos y conductores.
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-xl-4">
                     <div class="card h-100 modality-card">
-                        <img class="card-img-top object-fit-contain" src="{{ asset('landing_assets/images/tele-medicina.png') }}" alt="Portada" style="height: 175px"/>
+                        <img class="card-img-top object-fit-contain"
+                             src="{{ asset('landing_assets/images/tele-medicina.png') }}" alt="Portada"
+                             style="height: 175px"/>
                         <div class="card-body">
                             <h6 class="card-title">Tele medicina</h6>
                             <p class="card-text">
@@ -82,8 +86,8 @@
     <section class="container py-6" id="nosotros">
         <div class="section mb-5">
             <h1 class="text-center">
-                Conoce más <br/>
-                sobre nosotros
+                <span style="font-size: 2rem">¿Por qué elegir</span> <br/>
+                <span style="font-size: 3rem">SBCMEDIC?</span>
             </h1>
         </div>
 
@@ -122,9 +126,11 @@
                     <span class="list-us-text">Paquetes corporativos precios competitivos.</span>
                 </li>
             </ul>
-            <div class="banner-us">
-                <img src="{{ asset('landing_assets/images/medicos.png') }}" alt="Medicos"/>
-            </div>
+
+            <img class="w-100" src="{{ asset('landing_assets/images/cirujanos.jpg') }}" alt="" style="border-radius: 16px">
+{{--            <div class="banner-us">--}}
+{{--                <img src="{{ asset('landing_assets/images/medicos.png') }}" alt="Medicos"/>--}}
+{{--            </div>--}}
         </div>
 
     </section>
@@ -139,17 +145,7 @@
 
         <div class="section-xxl">
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 gx-4 gy-5">
-                @for ($i = 0; $i < 10; $i++)
-                    <div class="col">
-                        <div class="card specialties-card">
-                            <div class="card-body">
-                                <x-root.svg.ear/>
-
-                                <h6 class="card-title">Otorrinolaringología</h6>
-                            </div>
-                        </div>
-                    </div>
-                @endfor
+                @each('root.home.partials.specialty', $specialties, 'specialty')
             </div>
         </div>
     </section>
@@ -162,24 +158,33 @@
             </h5>
         </div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-3 row-cols-xxl-4 gx-6 gy-5">
-            @for ($i = 0; $i < 4; $i++)
+            @foreach($doctors as $doctor)
                 <div class="col">
-                    <div class="card doctor-card">
+                    <div class="card doctor-card h-100">
                         <div class="card-body">
-                            <div class="card-figure" style="background-color: #024963">
-                                <img src="{{ asset('landing_assets/images/doctor.png') }}" alt=""/>
+                            <div class="card-figure">
+                                @if ($doctor->web_src_img)
+                                    <img src="{{ $doctor->web_src_img }}" alt="{{ $doctor->getFullNameAttribute() }}"/>
+                                @else
+                                    @if($doctor->gender === 'M')
+                                        <img src="{{ asset('assets/images/doctors/01.jpg') }}" alt="">
+                                    @else
+                                        <img src="{{ asset('assets/images/doctors/03.jpg') }}" alt="">
+                                    @endif
+                                @endif
                             </div>
-                            <h6 class="card-title">Dr. Cesar Alfaro</h6>
+                            <h6 class="card-title">{{ $doctor->title }} {{ $doctor->firstname }} {{ $doctor->lastname }}</h6>
                             <div class="card-content">
-                                <span class="card-text">CMP: 67655</span>
-                                <span class="card-text">RNE: A07018</span>
+                                <span class="card-text">CMP: {{ $doctor->cmp ? $doctor->cmp : '----' }}</span>
+                                <span class="card-text">RNE: {{ $doctor->rne ? $doctor->rne : '----' }}</span>
                             </div>
                             <span class="card-badge"
-                                  style="background-color: #ecfff6; color: #36ae73">Medicina general</span>
+                                  style="background-color: #ecfff6; color: #36ae73">{{ $doctor->specialty->name }}</span>
+                            <a href="{{ route('root.doctors.show', $doctor) }}" class="stretched-link"></a>
                         </div>
                     </div>
                 </div>
-            @endfor
+            @endforeach
         </div>
     </section>
 
@@ -352,45 +357,14 @@
                 <h1 class="text-center">Contacto</h1>
             </div>
             <div class="section-xl">
-                <form method="POST" action="#">
-                    @csrf
-                    <div class="row mb-4 gy-4">
-                        <div class="col-lg-12 col-xl-5">
-                            <label for="name" class="form-label">Nombre y apellido</label>
-                            <input type="text" class="form-control" id="name" placeholder="Escribe tu nombre aquí...">
-                        </div>
-                        <div class="col-12 col-lg">
-                            <label for="phone" class="form-label">Número de contacto</label>
-                            <input type="tel" class="form-control" id="phone" placeholder="Nro de teléfono...">
-                        </div>
-                        <div class="col-12 col-lg">
-                            <label for="document" class="form-label">Doc. de Identidad</label>
-                            <input type="number" class="form-control" id="document" placeholder="Doc. de identidad...">
-                        </div>
-                        <div class="col-12 col-lg">
-                            <label for="specialty" class="form-label">Especialidad</label>
-                            <input type="text" class="form-control" id="specialty" placeholder="Especialidad...">
-                        </div>
-                    </div>
-
-                    <div class="mb-5">
-                        <label for="content" class="form-label">Número de contacto</label>
-                        <textarea class="form-control" id="content" placeholder="Escribe tu mensaje aquí..." rows="8"
-                                  style="resize: none"></textarea>
-                    </div>
-
-                    <div class="text-center">
-                        <input type="button" value="¡Reserva tu cita aquí!"
-                               class="btn btn-secondary btn-lg px-5 fw-semibold">
-                    </div>
-                </form>
+                @include('root.home.partials.form')
             </div>
         </section>
     </div>
 
     <section class="container py-6">
-        <div class="sbc-address">
-            <div class="sbc-address-info">
+        <div class="row sbc-address g-0">
+            <div class="col-12 col-lg-auto sbc-address-info d-flex">
                 <ul class="sbc-address-list">
                     <li>
                         <span class="sbc-address-icon"><x-root.svg.map/></span>
@@ -411,8 +385,11 @@
                     </li>
                 </ul>
             </div>
-            <div class="sbc-address-map bg-light">
-                <div id="map" class="w-100" style="height: 400px"></div>
+            <div class="col-12 col-lg bg-light">
+                <iframe id="map" class="sbc-address-map"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.486439059592!2d-77.01872399999999!3d-12.147250199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105b74cc86bd3ab%3A0x970aa9d599f28c67!2sSBCmedic!5e0!3m2!1ses-419!2spe!4v1686168477728!5m2!1ses-419!2spe"
+                        style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>

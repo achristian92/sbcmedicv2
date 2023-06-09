@@ -59,6 +59,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }).mount({AutoScroll})
     }
 
+    // const splideEspecialtyEl = document.querySelector('#splide-specialty')
+    // if (splideEspecialtyEl) {
+    //     new Splide(splideEspecialtyEl, {
+    //         type: ''
+    //     })
+    // }
+
     console.log(window.location.hash)
 
     const navItems = [].slice.call(document.querySelectorAll('[data-action="nav-smooth"]'))
@@ -68,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const {action, target} = navItem.dataset
             if (window.location.pathname !== navItem.pathname) {
-                window.location.href = `${navItem.href}/#${target}`
+                window.location.href = `/#${target}`
             } else {
                 const nodeTarget = document.getElementById(target)
                 const box = nodeTarget.getBoundingClientRect()

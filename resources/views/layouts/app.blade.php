@@ -28,9 +28,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" type="text/css" rel="stylesheet"></script>
     <script src="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" type="text/css" rel="stylesheet"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/classic/ckeditor.js"></script>
 
     @vite(['resources/js/app.js'])
-
 </head>
 
 <body>

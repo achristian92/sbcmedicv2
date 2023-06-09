@@ -3,6 +3,7 @@
 namespace App\SoftMedic\Service\Specialties;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Specialty extends Model
 {
@@ -21,6 +22,6 @@ class Specialty extends Model
 
     public static function getListActives()
     {
-        return Specialty::where('status',1)->orderBy('name')->get();
+        return Specialty::where('status', 1)->orderBy('name')->get();
     }
 }

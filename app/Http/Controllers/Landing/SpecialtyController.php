@@ -1,0 +1,55 @@
+<?php
+
+namespace App\Http\Controllers\Landing;
+
+use \App\Http\Controllers\Controller;
+use App\SoftMedic\Service\Specialties\Requests\SpecialtyLandingRequest;
+use App\SoftMedic\Service\Specialties\Specialty;
+use App\SoftMedic\Tools\UploadableTrait;
+use Illuminate\Support\Facades\Log;
+
+class SpecialtyController extends Controller
+{
+    use UploadableTrait;
+
+    public function index()
+    {
+        $specialties = Specialty::getListActives();
+
+        return view('landing.specialties.index', [
+            'specialties' => $specialties
+        ]);
+    }
+
+    public function edit(Specialty $specialty)
+    {
+        return view('landing.specialties.edit', [
+            'model' => $specialty
+        ]);
+    }
+
+    public function update(SpecialtyLandingRequest $request, Specialty $specialty)
+    {
+        $files = [];
+        $src_img = null;
+        $src_icon = null;
+
+        $folder = 'specialties/' . $specialty->getIdAttribute() . '/landing';
+        if ($request->hasFile('attachment_img')) {
+            $src_img = $this->handleUploadedImage($request->file('attachment_img'), $folder);
+        }
+        if ($request->hasFile('attachment_icon')) {
+            $src_icon = $this->handleUploadedImage($request->file('attachment_icon'), $folder);
+        }
+
+        Log::debug('Controlador');
+        Log::debug($src_img);
+        Log::debug($src_icon);
+
+        if ($src_img) $files['web_src_img'] = $src_img;
+        if ($src_icon) $files['web_src_icon'] = $src_icon;
+        $specialty->update(array_merge($request->validated(), $files));
+
+        return redirect()->route('landing.specialties.index')->with('message', 'Registro actualizado');
+    }
+}
