@@ -16,7 +16,7 @@
     "src": "resources/js/app.js"
   },
   "resources/js/root.css": {
-    "file": "assets/root-0fa08674.css",
+    "file": "assets/root-bdd3fc97.css",
     "src": "resources/js/root.css"
   },
   "resources/js/root.js": {
@@ -51,9 +51,9 @@
       "assets/bootstrap-icons-999550fa.woff"
     ],
     "css": [
-      "assets/root-0fa08674.css"
+      "assets/root-bdd3fc97.css"
     ],
-    "file": "assets/root-4d83ba97.js",
+    "file": "assets/root-2a1b6a7f.js",
     "imports": [
       "_bootstrap-032e7394.js"
     ],
