@@ -15,6 +15,7 @@ class DoctorLandingRequest extends FormRequest
             'attachment_img' => 'nullable|image',
             'web_info' => 'required',
             'web_services' => 'required',
+            'web_info_type' => 'required',
         ];
     }
 
@@ -26,6 +27,7 @@ class DoctorLandingRequest extends FormRequest
             'web_services.required' => "Servicios es obligatorio",
             'local_id.required' => "Sede es obligatorio",
             'attachment_img.image' => "Solo se permite imagenes",
+            'web_info_type.required' => "El tipo de información es obligatorio",
         ];
     }
 

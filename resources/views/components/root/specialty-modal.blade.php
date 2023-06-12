@@ -13,7 +13,8 @@
                 <div class="sbc-content">{!! $specialty->web_description !!}</div>
             </div>
             <div class="modal-footer border-top-0 justify-content-center">
-                <a href="https://wa.me/51919446233" target="_blank" class="btn btn-primary">¡Reserva tu cita aquí!</a>
+
+                <a href="https://api.whatsapp.com/send?phone=51919446233&text=Me gustaría agendar una cita para {{ ucfirst(strtolower($specialty->name)) }}" target="_blank" class="btn btn-primary">¡Reserva tu cita aquí!</a>
             </div>
         </div>
     </div>

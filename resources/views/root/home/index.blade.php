@@ -127,10 +127,11 @@
                 </li>
             </ul>
 
-            <img class="w-100" src="{{ asset('landing_assets/images/cirujanos.jpg') }}" alt="" style="border-radius: 16px">
-{{--            <div class="banner-us">--}}
-{{--                <img src="{{ asset('landing_assets/images/medicos.png') }}" alt="Medicos"/>--}}
-{{--            </div>--}}
+            <img class="w-100" src="{{ asset('landing_assets/images/cirujanos.jpg') }}" alt=""
+                 style="border-radius: 16px">
+            {{--            <div class="banner-us">--}}
+            {{--                <img src="{{ asset('landing_assets/images/medicos.png') }}" alt="Medicos"/>--}}
+            {{--            </div>--}}
         </div>
 
     </section>
@@ -144,21 +145,14 @@
         </div>
 
         <div class="section-xxl">
-            @each('root.home.partials.specialty', $specialties, 'specialty')
+            @each('components.root.specialty-modal', $specialties, 'specialty')
 
             <section id="splide-specialty" class="splide">
                 <div class="splide__track">
                     <ul class="splide__list">
                         @foreach($specialties as $specialty)
                             <li class="splide__slide text-center py-2 mx-3">
-                                <div class="card specialties-card">
-                                    <div class="card-body">
-                                        <img src="{{ asset($specialty->web_src_icon) }}" alt="">
-                                        <h6 class="card-title">{{ $specialty->name }}</h6>
-                                        <a class="stretched-link" data-bs-toggle="modal"
-                                           data-bs-target="#modal-specialty-{{ $specialty->getIdAttribute() }}"></a>
-                                    </div>
-                                </div>
+                                <x-root.specialty-card :specialty="$specialty"/>
                             </li>
                         @endforeach
                     </ul>
@@ -177,29 +171,7 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-3 row-cols-xxl-4 gx-6 gy-5">
             @foreach($doctors as $doctor)
                 <div class="col">
-                    <div class="card doctor-card h-100">
-                        <div class="card-body">
-                            <div class="card-figure">
-                                @if ($doctor->web_src_img)
-                                    <img src="{{ $doctor->web_src_img }}" alt="{{ $doctor->getFullNameAttribute() }}"/>
-                                @else
-                                    @if($doctor->gender === 'M')
-                                        <img src="{{ asset('assets/images/doctors/01.jpg') }}" alt="">
-                                    @else
-                                        <img src="{{ asset('assets/images/doctors/03.jpg') }}" alt="">
-                                    @endif
-                                @endif
-                            </div>
-                            <h6 class="card-title">{{ $doctor->title }} {{ $doctor->firstname }} {{ $doctor->lastname }}</h6>
-                            <div class="card-content">
-                                <span class="card-text">CMP: {{ $doctor->cmp ? $doctor->cmp : '----' }}</span>
-                                <span class="card-text">RNE: {{ $doctor->rne ? $doctor->rne : '----' }}</span>
-                            </div>
-                            <span class="card-badge"
-                                  style="background-color: #ecfff6; color: #36ae73">{{ $doctor->specialty->name }}</span>
-                            <a href="{{ route('root.doctors.show', $doctor) }}" class="stretched-link"></a>
-                        </div>
-                    </div>
+                    <x-root.doctor :doctor="$doctor"/>
                 </div>
             @endforeach
         </div>
@@ -374,7 +346,7 @@
                 <h1 class="text-center">Contacto</h1>
             </div>
             <div class="section-xl">
-                @include('root.home.partials.form')
+                <x-root.form/>
             </div>
         </section>
     </div>
@@ -386,26 +358,26 @@
                     <li>
                         <span class="sbc-address-icon"><x-root.svg.map/></span>
                         <span class="sbc-address-title">Direccion:</span>
-                        <span class="sbc-address-text">Manuel Raygada 170, San Miguel</span>
+                        <span class="sbc-address-text">Jr. Ignacio Mariátegui 157, Barranco</span>
                     </li>
                     <li>
                         <span class="sbc-address-icon"><x-root.svg.phone/></span>
                         <span class="sbc-address-title">Horario de atención:</span>
-                        <span class="sbc-address-text">Lunes a viernes: 8:00 am a 6:00 pm</span>
-                        <span class="sbc-address-text">Sábado: 8:00 am a 12 pm</span>
+                        <span class="sbc-address-text">Lunes a viernes 8:00 am - 6:00 pm</span>
+                        <span class="sbc-address-text">Sábados 8:00 am - 2:00 pm</span>
                     </li>
                     <li>
                         <span class="sbc-address-icon"><x-root.svg.clock/></span>
                         <span class="sbc-address-title">Teléfonos:</span>
-                        <span class="sbc-address-text">(01) 219-1100</span>
-                        <span class="sbc-address-text">+51 978 217 901</span>
+                        <span class="sbc-address-text">919446233</span>
+                        <span class="sbc-address-text">(01) 7390091</span>
                     </li>
                 </ul>
             </div>
             <div class="col-12 col-lg bg-light">
                 <iframe id="map" class="sbc-address-map"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.486439059592!2d-77.01872399999999!3d-12.147250199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105b74cc86bd3ab%3A0x970aa9d599f28c67!2sSBCmedic!5e0!3m2!1ses-419!2spe!4v1686168477728!5m2!1ses-419!2spe"
-                        style="border:0;" allowfullscreen="" loading="lazy"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.4879895181284!2d-77.02126032379131!3d-12.147144388097574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105b7f3d21baa7b%3A0x93bb97618ed0fab!2sIgnacio%20Mariategui%20157%2C%20Barranco%2015063!5e0!3m2!1ses-419!2spe!4v1686333380678!5m2!1ses-419!2spe"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
