@@ -127,8 +127,9 @@
                 </li>
             </ul>
 
-            <img class="w-100" src="{{ asset('landing_assets/images/cirujanos.jpg') }}" alt=""
-                 style="border-radius: 16px">
+            <figure class="sbc-cover">
+                <img src="{{ asset('landing_assets/images/sbc-image.jpeg') }}" alt="">
+            </figure>
             {{--            <div class="banner-us">--}}
             {{--                <img src="{{ asset('landing_assets/images/medicos.png') }}" alt="Medicos"/>--}}
             {{--            </div>--}}
