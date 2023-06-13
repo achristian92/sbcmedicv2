@@ -27,7 +27,8 @@ class Contact extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Contacto Landing',
+            from: env('MAIL_FROM_ADDRESS'),
+            subject: 'SBC - Contacto Landing',
         );
     }
 
