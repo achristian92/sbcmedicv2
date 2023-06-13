@@ -28,7 +28,7 @@ class HomeController extends Controller
 
     public function contact(Request $request)
     {
-        Mail::to('abelurussan@gmail.com')->send(new Contact(
+        Mail::to(env('MAIL_USERNAME'))->send(new Contact(
             $request->name,
             $request->telephone,
             $request->document,
