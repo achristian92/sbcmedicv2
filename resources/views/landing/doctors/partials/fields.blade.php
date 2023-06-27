@@ -77,7 +77,6 @@
 
 <div class="">
     <div class="form-check form-switch">
-        <input type="hidden" name="status" value="0">
         <input class="form-check-input" type="checkbox" id="statusForm"
                name="web_is_active"
                value="1" {{ $model->web_is_active || old('web_is_active', false) === true ? 'checked' : '' }}>

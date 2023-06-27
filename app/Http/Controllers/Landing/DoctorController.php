@@ -40,6 +40,10 @@ class DoctorController extends Controller
     {
         $files = [];
         $src_img = null;
+        $data = $request->validated();
+
+        if (!$request->has('web_is_active'))
+            $data['web_is_active'] = '0';
 
         if ($request->hasFile('attachment_img')) {
             $folder = 'doctors/' . $doctor->getIdAttribute() . '/landing';
@@ -47,7 +51,7 @@ class DoctorController extends Controller
         }
 
         if ($src_img) $files['web_src_img'] = $src_img;
-        $doctor->update(array_merge($request->validated(), $files));
+        $doctor->update(array_merge($data, $files));
 
         return redirect()->route('landing.doctors.index')->with('message', 'Registro actualizado');
     }
