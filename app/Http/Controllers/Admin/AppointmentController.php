@@ -14,17 +14,14 @@ class AppointmentController extends Controller
 {
     public function index()
     {
+        $from = Carbon::parse(request('month'))->startOfMonth()->format('Y-m-d');
+        $to = Carbon::parse(request('month'))->endOfMonth()->format('Y-m-d');
+
         $appointments = Appointment::with('patient','specialty','doctor','payments')
-            ->where('fechaCita','>=',now()->startOfYear())
+            ->where('fechaCita','>=',$from)
+            ->where('fechaCita','<=',$to)
             ->orderBy('fechaCita','desc')
             ->get();
-
-        if(request()->filled('month')){
-            $from = Carbon::parse(request('month'))->startOfMonth()->format('Y-m-d');
-            $to = Carbon::parse(request('month'))->endOfMonth()->addDay()->format('Y-m-d');
-            $appointments = $appointments->where('fechaCita','>=',$from)->where('fechaCita','<=',$to);
-        }
-
 
         if(request()->filled('status'))
             $appointments = $appointments->where('status',request('status'));
