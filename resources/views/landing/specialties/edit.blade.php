@@ -3,11 +3,11 @@
     @component('components.form')
         @slot('title','Especialidades')
         @slot('content')
-            <form method="POST" action="{{ route('landing.specialties.update', $model) }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('landing.especialidades.update', $model) }}" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 @include('landing.specialties.partials.fields',[
-                   'back'=> route('landing.specialties.index')
+                   'back'=> route('landing.especialidades.index')
                ])
             </form>
         @endslot

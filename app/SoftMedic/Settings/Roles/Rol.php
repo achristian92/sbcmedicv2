@@ -2,6 +2,7 @@
 
 namespace App\SoftMedic\Settings\Roles;
 
+use App\Models\User;
 use App\SoftMedic\Settings\Permissions\Permission;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,8 +15,15 @@ class Rol extends Model
 
     protected $guarded = ['id'];
 
-    public function permissions(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public $timestamps = false;
+
+    public function permission(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->belongsToMany(Permission::class,'permiso_rol','idPermiso','idRol');
+        return $this->belongsToMany(Permission::class,'permiso_rol','idRol','idPermiso');
+    }
+
+    public function users()
+    {
+        return $this->hasMany(User::class,'idRol');
     }
 }

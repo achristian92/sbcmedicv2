@@ -7,7 +7,7 @@
             <h5 class="mb-0">Sedes</h5>
         </div>
         <div class="col-xl-3 col-md-6 mt-4 mt-md-0 text-md-end">
-            <a href="{{ route('landing.locals.create') }}" class="btn btn-sm btn-primary">Nuevo</a>
+            <a href="{{ route('landing.l-locals.create') }}" class="btn btn-sm btn-primary">Nuevo</a>
         </div>
     </div>
 

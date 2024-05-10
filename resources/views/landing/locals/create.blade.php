@@ -3,10 +3,10 @@
     @component('components.form')
         @slot('title', 'Sedes')
         @slot('content')
-            <form method="POST" action="{{ route('landing.locals.store') }}">
+            <form method="POST" action="{{ route('landing.l-locals.store') }}">
                 @csrf
                 @include('landing.locals.partials.fields',[
-                    'back'=> route('landing.locals.index')
+                    'back'=> route('landing.l-locals.index')
                 ])
             </form>
         @endslot

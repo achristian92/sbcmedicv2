@@ -10,6 +10,6 @@
     </td>
     <td>@include('components.is-active', ['status' => $specialty->web_is_active])</td>
     <td class="text-end p-3">
-        @include('components.edit',['route' => route('landing.specialties.edit', $specialty)])
+        @include('components.edit',['route' => route('landing.especialidades.edit', $specialty)])
     </td>
 </tr>

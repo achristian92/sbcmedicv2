@@ -7,6 +7,6 @@
     </td>
     <td>@include('components.is-active', ['status' => $local->web_is_active])</td>
     <td class="text-end p-3">
-        @include('components.edit', ['route' => route('landing.locals.edit', $local)])
+        @include('components.edit', ['route' => route('landing.l-locals.edit', $local)])
     </td>
 </tr>

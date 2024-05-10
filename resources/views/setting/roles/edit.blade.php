@@ -1,14 +1,14 @@
 @extends('layouts.app')
 @section('content')
     @component('components.form')
-        @slot('title','Especialidades')
+        @slot('title','Roles')
         @slot('content')
-            <form method="POST" action="{{ route('service.specialties.update',$model) }}">
+            <form method="POST" action="{{ route('setting.roles.update',$model) }}">
                 @csrf
                 @method('PUT')
-                @include('service.specialties.partials.fields',[
-                   'back'=> route('service.specialties.index')
-               ])
+                @include('setting.roles.partials.fields',[
+                    'back'=> route('setting.roles.index')
+                ])
            </form>
        @endslot
    @endcomponent

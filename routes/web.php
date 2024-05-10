@@ -39,6 +39,7 @@ Route::group(['as' => 'root.'], function() {
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', [\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('home');
+    Route::resource('/patients', \App\Http\Controllers\Patients\PatientController::class);
     Route::get('/appointments', [AppointmentController::class, 'index'])->name('appointment.index');
     Route::get('/appointments/{appointment}/payments', [AppointmentController::class, 'addPayment'])->name('appointment.add-payment');
     Route::get('/appointments/{appointment}/remove/payments', [AppointmentController::class, 'addRemove'])->name('appointment.add-remove');
@@ -48,8 +49,9 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 Route::group(['prefix' => 'setting', 'middleware' => ['auth'], 'as' => 'setting.'], function () {
-    Route::resource('users', \App\Http\Controllers\Setting\PermissionController::class);
-    Route::resource('roles', \App\Http\Controllers\Setting\RoleController::class);
+    Route::resource('users', \App\Http\Controllers\Setting\UserController::class);
+    Route::resource('roles', \App\Http\Controllers\Setting\RoleController::class)->except('show');
+    Route::get('roles/{role}/delete', [\App\Http\Controllers\Setting\RoleController::class,'delete'])->name('roles.delete');
     Route::resource('permissions', \App\Http\Controllers\Setting\PermissionController::class);
     Route::resource('doctors', \App\Http\Controllers\Setting\DoctorController::class);
     Route::resource('schedules', \App\Http\Controllers\Setting\ScheduleController::class);
@@ -58,9 +60,9 @@ Route::group(['prefix' => 'setting', 'middleware' => ['auth'], 'as' => 'setting.
 });
 
 Route::group(['prefix' => 'landing', 'middleware' => ['auth'], 'as' => 'landing.'], function () {
-    Route::resource('doctors', \App\Http\Controllers\Landing\DoctorController::class);
-    Route::resource('specialties', \App\Http\Controllers\Landing\SpecialtyController::class);
-    Route::resource('locals', \App\Http\Controllers\Landing\LocalController::class);
+    Route::resource('doctores', \App\Http\Controllers\Landing\DoctorController::class);
+    Route::resource('especialidades', \App\Http\Controllers\Landing\SpecialtyController::class);
+    Route::resource('l-locals', \App\Http\Controllers\Landing\LocalController::class);
 });
 
 Route::group(['prefix' => 'service', 'middleware' => ['auth'], 'as' => 'service.'], function () {

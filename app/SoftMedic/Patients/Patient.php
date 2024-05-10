@@ -2,6 +2,7 @@
 
 namespace App\SoftMedic\Patients;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Patient extends Model
@@ -11,6 +12,11 @@ class Patient extends Model
     protected $appends = ['full_name'];
 
     protected $guarded = ['idPatient'];
+
+    public function user(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(User::class,'idUsuario','idUser');
+    }
 
     public function getFullNameAttribute()
     {

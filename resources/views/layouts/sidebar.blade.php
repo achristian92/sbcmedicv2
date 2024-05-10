@@ -26,11 +26,13 @@
                     </ul>
                 </div>
             </li>
+            <li><a href="{{ route('patients.index') }}"><i class="uil uil-wheelchair me-2 d-inline-block"></i>Pacientes</a></li>
 
             <li class="sidebar-dropdown">
                 <a href="javascript:void(0)"><i class="uil uil-setting me-2 d-inline-block"></i>Configuración</a>
                 <div class="sidebar-submenu">
                     <ul>
+                        <li><a href="{{ route('setting.users.index') }}">Usuarios</a></li>
                         <li><a href="{{ route('setting.doctors.index') }}">Doctores</a></li>
                         <li><a href="{{ route('setting.schedules.index') }}">Horarios</a></li>
                         <li><a href="{{ route('setting.exams.index') }}">Exámenes</a></li>
@@ -44,9 +46,9 @@
                 <a href="javascript:void(0)"><i class="uil uil-window me-2 d-inline-block"></i>Landing</a>
                 <div class="sidebar-submenu">
                     <ul>
-                        <li><a href="{{ route('landing.doctors.index') }}">Doctores</a></li>
-                        <li><a href="{{ route('landing.specialties.index') }}">Especialidades</a></li>
-                        <li><a href="{{ route('landing.locals.index') }}">Sedes</a></li>
+                        <li><a href="{{ route('landing.doctores.index') }}">Doctores</a></li>
+                        <li><a href="{{ route('landing.especialidades.index') }}">Especialidades</a></li>
+                        <li><a href="{{ route('landing.l-locals.index') }}">Sedes</a></li>
                     </ul>
                 </div>
             </li>

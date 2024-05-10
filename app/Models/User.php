@@ -14,13 +14,15 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $with = ['patient'];
+    //protected $with = ['patient'];
     protected $appends = ['id'];
     protected $primaryKey = 'idUser';
 
     protected $fillable = [
         'name',
         'email',
+        'idRol',
+        'status',
         'username',
         'password',
         'password_raw',

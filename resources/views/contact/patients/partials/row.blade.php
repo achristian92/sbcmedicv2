@@ -3,17 +3,10 @@
     <td class="p-3">
         <a href="#" class="text-dark">
             <div class="d-flex align-items-center">
-                @if ($doctor->web_src_img)
-                    <img src="{{ $doctor->web_src_img }}" alt="{{ $doctor->getFullNameAttribute() }}"
-                         class="avatar avatar-md-sm rounded-circle border shadow"/>
+                @if($doctor->gender === 'M')
+                    <img src="{{ asset('assets/images/doctors/01.jpg') }}" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
                 @else
-                    @if($doctor->gender === 'M')
-                        <img src="{{ asset('assets/images/doctors/01.jpg') }}"
-                             class="avatar avatar-md-sm rounded-circle border shadow" alt="">
-                    @else
-                        <img src="{{ asset('assets/images/doctors/03.jpg') }}"
-                             class="avatar avatar-md-sm rounded-circle border shadow" alt="">
-                    @endif
+                    <img src="{{ asset('assets/images/doctors/03.jpg') }}" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
                 @endif
                 <span class="ms-2">{{ $doctor->full_name }}</span>
             </div>
@@ -35,9 +28,9 @@
         @endif
     </td>
     <td class="p-3">{{ $doctor->specialty->name }}</td>
-    <td class="p-3">{{ $doctor->local ? $doctor->local->name : ''}}</td>
-    <td>@include('components.is-active', ['status' => $doctor->web_is_active])</td>
+    <td class="p-3">{{ $doctor->codigoSala }}</td>
+    <td>@include('components.is-active',['status' => $doctor->status])</td>
     <td class="text-end p-3">
-        @include('components.edit',['route' => route('landing.doctores.edit', $doctor)])
+        @include('components.edit',['route' => route('setting.doctors.edit',$doctor)])
     </td>
 </tr>

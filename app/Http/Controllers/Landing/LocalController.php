@@ -28,21 +28,21 @@ class LocalController extends Controller
     {
         Local::create($request->validated());
 
-        return redirect()->route('landing.locals.index')->with('message', 'Registro guardado');
+        return redirect()->route('landing.l-locals.index')->with('message', 'Registro guardado');
     }
 
-    public function edit(Local $local)
+    public function edit(Local $lLocal)
     {
         return view('landing.locals.edit', [
-            'model' => $local,
+            'model' => $lLocal,
         ]);
     }
 
-    public function update(LocalRequest $request, Local $local)
+    public function update(LocalRequest $request, Local $lLocal)
     {
         $data = $request->validated();
-        $local->update($data);
+        $lLocal->update($data);
 
-        return redirect()->route('landing.locals.index')->with('message', 'Registro actualizado');
+        return redirect()->route('landing.l-locals.index')->with('message', 'Registro actualizado');
     }
 }

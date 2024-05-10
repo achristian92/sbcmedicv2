@@ -21,20 +21,20 @@ class SpecialtyController extends Controller
         ]);
     }
 
-    public function edit(Specialty $specialty)
+    public function edit(Specialty $especialidade)
     {
         return view('landing.specialties.edit', [
-            'model' => $specialty
+            'model' => $especialidade
         ]);
     }
 
-    public function update(SpecialtyLandingRequest $request, Specialty $specialty)
+    public function update(SpecialtyLandingRequest $request, Specialty $especialidade)
     {
         $files = [];
         $src_img = null;
         $src_icon = null;
 
-        $folder = 'specialties/' . $specialty->getIdAttribute() . '/landing';
+        $folder = 'specialties/' . $especialidade->getIdAttribute() . '/landing';
         if ($request->hasFile('attachment_img')) {
             $src_img = $this->handleUploadedImage($request->file('attachment_img'), $folder);
         }
@@ -42,14 +42,11 @@ class SpecialtyController extends Controller
             $src_icon = $this->handleUploadedImage($request->file('attachment_icon'), $folder);
         }
 
-        Log::debug('Controlador');
-        Log::debug($src_img);
-        Log::debug($src_icon);
 
         if ($src_img) $files['web_src_img'] = $src_img;
         if ($src_icon) $files['web_src_icon'] = $src_icon;
-        $specialty->update(array_merge($request->validated(), $files));
+        $especialidade->update(array_merge($request->validated(), $files));
 
-        return redirect()->route('landing.specialties.index')->with('message', 'Registro actualizado');
+        return redirect()->route('landing.especialidades.index')->with('message', 'Registro actualizado');
     }
 }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Landing;
 
 use App\Http\Controllers\Controller;
-use App\SoftMedic\General\Districts\District;
+use App\SoftMedic\General\Districts\Department;
 use App\SoftMedic\General\DocumentTypes\DocumentType;
 use App\SoftMedic\General\Locals\Local;
 use App\SoftMedic\Service\Specialties\Specialty;
@@ -25,18 +25,18 @@ class DoctorController extends Controller
         ]);
     }
 
-    public function edit(Doctor $doctor)
+    public function edit(Doctor $doctore)
     {
         $locals = Local::getListActives();
 
         return view('landing.doctors.edit', [
-            'model' => $doctor,
+            'model' => $doctore,
             'specialties' => Specialty::getListActives(),
             'locals' => $locals
         ]);
     }
 
-    public function update(DoctorLandingRequest $request, Doctor $doctor)
+    public function update(DoctorLandingRequest $request, Doctor $doctore)
     {
         $files = [];
         $src_img = null;
@@ -46,13 +46,13 @@ class DoctorController extends Controller
             $data['web_is_active'] = '0';
 
         if ($request->hasFile('attachment_img')) {
-            $folder = 'doctors/' . $doctor->getIdAttribute() . '/landing';
+            $folder = 'doctors/' . $doctore->getIdAttribute() . '/landing';
             $src_img = $this->handleUploadedImage($request->file('attachment_img'), $folder);
         }
 
         if ($src_img) $files['web_src_img'] = $src_img;
-        $doctor->update(array_merge($data, $files));
+        $doctore->update(array_merge($data, $files));
 
-        return redirect()->route('landing.doctors.index')->with('message', 'Registro actualizado');
+        return redirect()->route('landing.doctores.index')->with('message', 'Registro actualizado');
     }
 }
