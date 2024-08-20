@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Setting;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\SoftMedic\General\Departments\Department;
 use App\SoftMedic\General\Districts\District;
 use App\SoftMedic\General\DocumentTypes\DocumentType;
 use App\SoftMedic\Patients\Patient;
@@ -66,7 +65,7 @@ class DoctorController extends Controller
             'model'         => $doctor,
             'documentTypes' => DocumentType::all(),
             'specialties'   => Specialty::getListActives(),
-            'districts'     => Department::where('province_id',1501)->orderBy('name')->get()
+            'districts'     => District::where('province_id',1501)->orderBy('name')->get()
         ]);
     }
 
